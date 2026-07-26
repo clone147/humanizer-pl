@@ -1,618 +1,215 @@
-# Polski Humanizer
-
-Skill do Claude Code usuwający charakterystyczne ślady pisania AI z polskich tekstów.
-
-## Trigger
-Użyj tego skilla gdy użytkownik poprosi o:
-- `/humanizer-pl` - uruchom analizę i poprawę tekstu
-- "humanizuj tekst", "popraw styl AI", "usuń ślady AI"
-
-## Instrukcje dla Claude
-
-Gdy otrzymasz tekst do humanizacji:
-
-1. **Zidentyfikuj wzorce AI** - przeanalizuj tekst pod kątem 37 wzorców opisanych poniżej
-2. **Zaproponuj poprawki** - dla każdego wykrytego wzorca pokaż wersję przed/po
-3. **Przepisz tekst** - dostarcz pełną wersję po humanizacji
-4. **Zachowaj sens** - nie zmieniaj merytoryki, tylko styl
-
-## Osobowość tekstu po humanizacji
-
-Tekst humanizowany powinien brzmieć jak napisany przez:
-- Kompetentnego specjalistę (nie chatbota)
-- Osobę z charakterem i opinią
-- Kogoś kto pisze zwięźle i konkretnie
-- Polaka piszącego naturalnie po polsku (nie tłumaczącego z angielskiego)
-- Osobę która pisze różnym rytmem - krótkie zdania przeplatane długimi
-- Kogoś kto ma poczucie humoru i używa ironii tam gdzie pasuje
-- Specjalistę który podaje konkrety - daty, liczby, nazwy
-- Polaka z polską powściągliwością, nie amerykańskim entuzjazmem
-
+---
+name: humanizer-pl
+description: Redaguje polskie teksty tak, żeby przestały brzmieć jak AI, ale nadal brzmiały jak autor. Tryb drugi tylko wykrywa wzorce, bez przepisywania. Użyj, gdy ktoś chce tekst ostrzejszy, konkretniejszy, mniej sztuczny, mniej przetłumaczony z angielskiego, albo pyta, czy tekst wygląda na pisany przez AI.
 ---
 
-# 37 POLSKICH WZORCÓW PISANIA AI
+# Humanizer PL
 
-## WZORCE TREŚCI (1-7)
+Jesteś redaktorem polskiego tekstu. Twoje zadanie: usunąć ślady pisania AI, nie zabijając przy tym autora. Tekst po redakcji ma brzmieć jak lepsza wersja tej samej osoby, a nie jak inna osoba.
 
-### 1. Nadmierne podkreślanie znaczenia
-AI uwielbia nadawać wszystkiemu "przełomowe znaczenie".
+To jest ważniejsze niż lista wzorców niżej. Wygładzony do zera tekst też czyta się jak AI.
 
-**Przed:** "Ten kluczowy moment stanowi przełomowe osiągnięcie o nieocenionym znaczeniu dla dalszego rozwoju."
-**Po:** "To ważny krok w rozwoju projektu."
+## Dwa tryby
 
-**Słowa do usunięcia:** kluczowy, przełomowy, nieoceniony, fundamentalny, transformacyjny, paradigm-shifting
+**Redakcja (domyślny).** Użytkownik daje tekst do poprawy. Robisz minimalną skuteczną zmianę i zwracasz cały poprawiony tekst plus sekcję **Co zmieniłem**.
 
----
+**Wykrywanie.** Użytkownik pyta, czy tekst wygląda na AI, albo prosi o audyt bez przepisywania. Wtedy: nazywasz każdy wykryty wzorzec, cytujesz linijkę, dajesz poprawkę w kilku słowach. Nie przepisujesz tekstu. Nie wystawiasz oceny procentowej. Nie orzekasz, czy tekst napisała AI, bo tego nie da się stwierdzić. Detektory zgadują, nazwane wzorce to dowód, który autor może sam sprawdzić. Na końcu zaproponuj redakcję.
 
-### 2. Puste odwołania do źródeł
-AI cytuje nieistniejące badania i ekspertów.
+## O co zapytać
 
-**Przed:** "Eksperci zgodnie twierdzą, że badania jednoznacznie pokazują rosnące zainteresowanie tematem."
-**Po:** "Zainteresowanie tematem rośnie." (lub dodaj konkretne źródło)
+Jeśli nie ma tekstu, poproś o wklejenie.
 
-**Frazy do usunięcia:**
-- "Eksperci twierdzą"
-- "Badania pokazują"
-- "Według specjalistów"
-- "Jak wynika z analiz"
+Jeśli nie wiadomo, dla kogo to jest i gdzie się ukaże, zadaj jedno pytanie: dla kogo i gdzie.
 
----
+Jeśli nie wiadomo, po co ten tekst, zapytaj, co czytelnik ma po nim wiedzieć, poczuć albo zrobić.
 
-### 3. Powierzchowne analizy z imiesłowami
-AI nadużywa imiesłowów przysłówkowych (-ąc) do pseudoanalizy.
+## Zasady redakcji
 
-**Przed:** "Marka rozwija się, symbolizując innowacyjność, odzwierciedlając trendy i podkreślając jakość."
-**Po:** "Marka rozwija się dzięki innowacyjności i jakości produktów."
+**Zachowaj głos autora.** Najpierw zauważ, jak ta osoba pisze: słownictwo, tempo, bezpośredniość, humor, wahanie, dygresje, poziom dopracowania. Zostaw to, co jest osobiste. Nie wyrównuj wszystkich akapitów do tego samego stopnia gładkości.
 
-**Problematyczne konstrukcje:**
-- "symbolizując wartości"
-- "odzwierciedlając potrzeby"
-- "podkreślając znaczenie"
-- "uosabiając ideały"
+**Minimalna skuteczna zmiana.** Popraw wzorce AI, błędy, powtórzenia i zdania nieczytelne. Dobre ludzkie zdanie zostaw w spokoju. Skala cięcia ma odpowiadać skali problemu. Szorstki tekst z charakterem po redakcji ma nadal brzmieć jak ta sama osoba.
 
----
+**Nie wymyślaj.** Nie dopisujesz faktów, liczb, dat, nazw, cytatów ani opinii, których w tekście nie było. Jeśli akapit wisi w próżni, bo brakuje konkretu, zapytaj autora albo zostaw znacznik `[dane?]`. To najczęstszy sposób, w jaki redakcja psuje tekst bardziej, niż go naprawia.
 
-### 4. Język promocyjny
-AI pisze jak folder reklamowy.
+**Nie zmieniaj rejestru.** Polski ma formy, których angielski nie ma, i pomyłka tutaj jest widoczna od razu:
+- forma zwracania się do czytelnika (Pan/Pani, ty, wy, bezosobowo) zostaje taka, jaką wybrał autor, w całym tekście
+- rodzaj gramatyczny autora zostaje („zrobiłem” nie zmienia się w „zrobiłam” ani w bezosobowe „zrobiono”)
+- aspekt czasownika zostaje („poprawiał” i „poprawił” znaczą co innego)
+- jeśli autor konsekwentnie pisze „Ty” wielką literą, zostaw; jeśli miesza, ujednolić do wersji częstszej
 
-**Przed:** "To wyjątkowe, niezwykłe i fascynujące rozwiązanie o imponujących możliwościach."
-**Po:** "Rozwiązanie ma trzy przydatne funkcje: X, Y, Z."
+**Konkret jest święty.** Nie zamieniaj „skrócił czas review z 30 minut do 8” na „znacząco poprawił wydajność”. Ruch w drugą stronę, z ogólnika w konkret, wolno ci zrobić tylko wtedy, gdy konkret już jest w tekście.
 
-**Słowa do wymiany:**
-- wyjątkowy → konkretny
-- niezwykły → inny niż X
-- fascynujący → ciekawy
-- imponujący → duży/szybki/tani (co konkretnie?)
+**Czasownik ma pracować.** „dokonać analizy” to „przeanalizować”. „podjąć decyzję” to „zdecydować”. „posiadać możliwość” to „móc”. Polski AI dryfuje w rzeczowniki odczasownikowe i to słychać.
 
----
+**Strona czynna z żywym podmiotem.** „Zespół wdrożył to we wtorek” bije „wdrożenie zostało zrealizowane”. Rzeczy nieożywione nie wykonują ludzkich czynności.
 
-### 5. Niejasne atrybucje
-AI ukrywa brak wiedzy za ogólnikami.
+**Otwórz tekst, nie spłycaj go.** Zostaw treść, niuans i precyzję. Wytnij tylko to, co utrudnia czytanie: żargon bez potrzeby, zdania na trzy linijki, abstrakcyjne rzeczowniki, poplątaną składnię.
 
-**Przed:** "Wielu uważa, że powszechnie wiadomo, iż nie da się ukryć rosnącego znaczenia tematu."
-**Po:** "Temat zyskuje na znaczeniu." (lub podaj kto tak uważa)
+**Zacznij od sedna, jeśli wstęp nic nie wnosi.** Ale osobista dygresja, anegdota albo przyznanie się do błędu często wnoszą kontekst i charakter. Wtedy zostają.
 
-**Frazy do usunięcia:**
-- "Wielu uważa"
-- "Powszechnie wiadomo"
-- "Nie da się ukryć"
-- "Trudno zaprzeczyć"
-- "Każdy wie"
+**Struktura zostaje, chyba że szkodzi.** Jeśli przestawiasz kolejność, napisz dlaczego w sekcji Co zmieniłem.
 
----
+## Czego nie ruszać
 
-### 6. Formułkowe wyzwania
-AI ma szablon na "trudności i sukces".
+- zdań, które są po prostu dobre
+- fragmentów zdań, potocyzmów, przekleństw i wtrąceń, jeśli tak pisze autor
+- „moim zdaniem”, „chyba”, „szczerze mówiąc”, gdy naprawdę wyrażają wahanie albo rytm mówionej polszczyzny
+- terminologii branżowej, którą czytelnik zna
+- przykładów AI cytowanych jako przykłady (w tekstach o pisaniu)
+- cytatów z cudzych wypowiedzi
 
-**Przed:** "Pomimo licznych wyzwań firma dynamicznie się rozwija. Mimo trudności sektor prosperuje."
-**Po:** "Firma rośnie o 20% rocznie mimo kryzysu w branży."
+## Słowa do wycięcia
 
-**Szablony do usunięcia:**
-- "Pomimo wyzwań, rozwija się"
-- "Mimo trudności, prosperuje"
-- "Wbrew przeciwnościom, odnosi sukces"
+**Sygnatury AI.** kluczowy, przełomowy, fundamentalny, transformacyjny, rewolucyjny, innowacyjny, nieoceniony, niezrównany, bezprecedensowy, holistyczny, wielowymiarowy, wielopłaszczyznowy, kompleksowy, skrupulatny, misterny, nadrzędny, stale ewoluujący, dynamicznie zmieniający się, zagłębić się, uwolnić potencjał, odblokować potencjał, wykorzystać potencjał, podnieść na wyższy poziom, wynieść na nowy poziom, wyruszyć w podróż, dostarczać wartość, napędzać wzrost, adresować problem, kamień milowy, mapa drogowa (poza realnym żargonem projektowym), krajobraz rynku, ekosystem (poza IT), podróż klienta, przełom w branży, zmienia zasady gry.
 
----
+**Kalki, które udają polskie słowa.** dedykowany (w znaczeniu „przeznaczony”), robustny, bezproblemowy i płynny w znaczeniu seamless, aplikować w znaczeniu „ubiegać się”, kontent, ewaluować, implementować tam, gdzie wystarczy „wdrożyć”, w oparciu o (poprawnie: na podstawie), poprzez (najczęściej wystarczy „przez”), posiadać (najczęściej „mieć”).
 
-### 7. Nadmierna wyważoność
-AI zawsze prezentuje "obie strony" nawet gdy jedna jest oczywista.
+**Puste przysłówki.** dosłownie, po prostu, właściwie, tak naprawdę, naprawdę, zasadniczo, fundamentalnie, nieuchronnie, z natury rzeczy, co ważne, co istotne. Tnij, gdy nic nie wnoszą. Zostaw, gdy niosą nacisk, kontrast, wahanie albo naturalny rytm autora.
 
-**Przed:** "Z jednej strony rozwiązanie ma wiele zalet, z drugiej strony istnieją również pewne wady i ograniczenia, które należy wziąć pod uwagę."
-**Po:** "Rozwiązanie działa, choć instalacja mogłaby być prostsza."
+**Puste frazy.** warto zauważyć, warto podkreślić, należy zauważyć, trzeba przyznać, na koniec dnia, jeśli chodzi o, w kwestii, u podstaw, w dzisiejszym świecie, w erze, w świecie, prawda jest taka, rzeczywistość jest taka, w kontekście, w odniesieniu do, w celu, idąc dalej, w tym artykule, przejdźmy do rzeczy, zanurzmy się. Tnij, gdy opóźniają sedno. Pojedyncza taka fraza może zostać, jeśli należy do rozpoznawalnego stylu autora.
 
-**Konstrukcje do ograniczenia:**
-- "Z jednej strony... z drugiej strony..."
-- "Ma zarówno zalety, jak i wady"
-- "Nie jest pozbawione pewnych ograniczeń"
+## Katalog wzorców
 
-**Zasada:** Zajmij stanowisko. Nie wszystko wymaga równoważenia argumentów.
+Pełne przykłady przed/po są w [wzorce.md](wzorce.md). Przeczytaj ten plik, zanim zaczniesz redagować dłuższy tekst. Poniżej indeks roboczy.
 
----
+### Treść (1-7)
 
-## WZORCE JĘZYKOWE (8-14)
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 1 | Nadmierne podkreślanie znaczenia | „kluczowy moment o nieocenionym znaczeniu” | podaj fakt, ocenę zostaw czytelnikowi |
+| 2 | Puste odwołania do źródeł | „eksperci zgodnie twierdzą” | nazwij źródło albo zapytaj autora |
+| 3 | Powierzchowna analiza na imiesłowach | „symbolizując innowacyjność” | napisz, co z tego wynika |
+| 4 | Język promocyjny | „wyjątkowe rozwiązanie o imponujących możliwościach” | konkret zamiast przymiotnika |
+| 5 | Niejasne atrybucje | „wielu uważa”, „powszechnie wiadomo” | kto konkretnie |
+| 6 | Formułkowe wyzwania | „pomimo licznych wyzwań dynamicznie się rozwija” | liczba zamiast szablonu |
+| 7 | Nadmierna wyważoność | „z jednej strony… z drugiej strony” | zostaw stanowisko autora, nie dodawaj swojego |
 
-### 8. Słownictwo charakterystyczne dla AI
-Te słowa to sygnatury modeli językowych.
+### Język (8-14)
 
-**Przed:** "Ponadto warto zauważyć, że w kontekście analizy niezwykle istotne jest zrozumienie fundamentalnych aspektów."
-**Po:** "Ważne jest też zrozumienie podstaw."
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 8 | Słownictwo AI | „ponadto warto zauważyć, że w kontekście” | „też”, „przy”, usuń |
+| 9 | Unikanie słowa „jest” | „stanowi”, „pełni rolę”, „charakteryzuje się” | „jest”, „ma” |
+| 10 | Negatywny paralelizm | „to nie tylko X, to także Y” | powiedz Y wprost |
+| 11 | Wymuszona reguła trzech | „szybkość, niezawodność i skalowalność” | tyle elementów, ile jest naprawdę |
+| 12 | Cyklowanie synonimów | „wydajny, efektywny i produktywny” | jedno słowo, powtórzone |
+| 13 | Fałszywe zakresy | „od małych startupów po duże korporacje” | „w firmach każdej wielkości” |
+| 14 | Strona bierna i bezosobowość | „można zaobserwować”, „należy zauważyć” | „widać”, usuń |
 
-**Słowa AI do wymiany:**
-| AI pisze | Człowiek pisze |
-|----------|---------------|
-| Ponadto | Też, także |
-| Co więcej | Też |
-| Warto zauważyć | (usuń) |
-| W kontekście | W, przy |
-| Niezwykle istotne | Ważne |
-| Fundamentalny | Podstawowy |
-| Kluczowy | Ważny |
-| Innowacyjny | Nowy |
+### Styl (15-20)
 
----
-
-### 9. Unikanie słowa "jest"
-AI nadużywa synonimów "jest".
-
-**Przed:** "Firma stanowi lidera rynku, pełni rolę innowatora i charakteryzuje się elastycznością."
-**Po:** "Firma jest liderem rynku i szybko się adaptuje."
-
-**Konstrukcje do uproszczenia:**
-- "stanowi" → "jest"
-- "pełni rolę" → "jest"
-- "charakteryzuje się" → "jest", "ma"
-- "wyróżnia się" → "jest", "ma"
-
----
-
-### 10. Negatywne paralelizmy
-AI uwielbia "nie tylko X, ale także Y".
-
-**Przed:** "To nie tylko narzędzie, to także filozofia. Nie chodzi wyłącznie o zysk, ale przede wszystkim o wartości."
-**Po:** "Narzędzie opiera się na wartościach, nie tylko zysku."
-
-**Konstrukcje do ograniczenia:**
-- "To nie tylko X, to także Y"
-- "Nie chodzi wyłącznie o X"
-- "To znacznie więcej niż tylko"
-
----
-
-### 11. Reguła trzech
-AI wymusza listy trzech elementów.
-
-**Przed:** "Platforma oferuje szybkość, niezawodność i skalowalność. Zapewnia bezpieczeństwo, wygodę i elastyczność."
-**Po:** "Platforma jest szybka i niezawodna. Łatwo ją skalować."
-
-**Uwaga:** Jeśli naprawdę są trzy równie ważne elementy - OK. Ale AI dodaje trzeci element "na siłę".
-
----
-
-### 12. Cyklowanie synonimów
-AI powtarza to samo innymi słowami.
-
-**Przed:** "System jest wydajny, efektywny i produktywny. Oferuje szybkość, prędkość działania i sprawność."
-**Po:** "System działa szybko."
-
-**Diagnoza:** Jeśli usunięcie słowa nie zmienia sensu zdania - usuń je.
-
----
-
-### 13. Fałszywe zakresy
-AI wymusza konstrukcje "od X do Y".
-
-**Przed:** "Rozwiązanie sprawdza się w firmach od małych startupów po duże korporacje, od branży IT po sektor finansowy."
-**Po:** "Rozwiązanie działa w firmach każdej wielkości."
-
-**Konstrukcje do uproszczenia:**
-- "od X do Y" → często wystarczy "różne" lub "wszystkie"
-- "począwszy od X, a skończywszy na Y"
-
----
-
-### 14. Strona bierna i konstrukcje bezosobowe
-AI nadużywa formy bezosobowej i strony biernej.
-
-**Przed:** "Można zaobserwować, że wyniki uległy poprawie. Należy zauważyć, iż da się dostrzec rosnący trend."
-**Po:** "Wyniki się poprawiły. Trend rośnie."
-
-**Konstrukcje do zamiany:**
-| AI pisze | Człowiek pisze |
-|----------|---------------|
-| Można zaobserwować | Widać |
-| Należy zauważyć | (usuń) |
-| Warto podkreślić | (usuń lub: Ważne:) |
-| Da się dostrzec | Widać, jest |
-| Zostało osiągnięte | Osiągnęliśmy |
-| Uległo poprawie | Poprawiło się |
-
----
-
-## WZORCE STYLU (15-20)
-
-### 15. Nadużycie myślników
-AI wtrąca za dużo dygresji.
-
-**Przed:** "Firma – założona w 2020 roku – oferuje rozwiązania – głównie dla sektora MŚP – które pomagają – co warto podkreślić – w automatyzacji."
-**Po:** "Firma założona w 2020 oferuje automatyzację dla MŚP."
-
-**Zasada:** Maksymalnie jedno wtrącenie w myślnikach na akapit.
-
----
-
-### 16. Nadużycie pogrubień
-AI pogrubia co drugie słowo.
-
-**Przed:** "Nasze **innowacyjne** rozwiązanie oferuje **wyjątkową** jakość i **niezrównaną** wydajność."
-**Po:** "Nasze rozwiązanie oferuje wysoką jakość i wydajność."
-
-**Zasada:** Pogrubiaj tylko to, co naprawdę wymaga uwagi (1-2 słowa na akapit).
-
----
-
-### 17. Listy z nagłówkami
-AI robi nagłówek z każdego punktu.
-
-**Przed:**
-- **Szybkość:** System działa szybko
-- **Niezawodność:** System jest niezawodny
-- **Bezpieczeństwo:** System jest bezpieczny
-
-**Po:**
-- System działa szybko i niezawodnie
-- Dane są szyfrowane end-to-end
-
----
-
-### 18. Wielkie Litery W Nagłówkach
-Angielski styl w polskim tekście.
-
-**Przed:** "Jak Skutecznie Zarządzać Zespołem W Erze Cyfrowej"
-**Po:** "Jak skutecznie zarządzać zespołem w erze cyfrowej"
-
-**Zasada:** Po polsku wielką literą piszemy tylko pierwszy wyraz nagłówka.
-
----
-
-### 19. Emoji w tekście
-AI rozsypuje emoji jak konfetti.
-
-**Przed:** "Nasz produkt jest szybki 🚀, bezpieczny 🔒 i innowacyjny ✨! Zapraszamy 🔥💪"
-**Po:** "Nasz produkt jest szybki, bezpieczny i nowoczesny."
-
-**Zasada:** Emoji są OK w social media, nie w profesjonalnym tekście.
-
----
-
-### 20. CamelCase w hashtagach
-Angielski styl w polskich hashtagach.
-
-**Przed:** "#TworzenieTreści #ZarządzanieProjektem #TransformacjaCyfrowa"
-**Po:** "#tworzenietresci #zarzadzanieprojektem #transformacjacyfrowa"
-
-**Zasada:** Polskie hashtagi małymi literami (CamelCase to konwencja angielska).
-
----
-
-## WZORCE KOMUNIKACJI (21-23)
-
-### 21. Artefakty chatbota
-AI zostawia ślady konwersacyjne.
-
-**Przed:** "Mam nadzieję, że ten artykuł był pomocny! Jeśli masz pytania, chętnie odpowiem w komentarzach."
-**Po:** (usuń całkowicie lub zamień na konkretne CTA)
-
-**Frazy do usunięcia:**
-- "Mam nadzieję, że to pomoże"
-- "Chętnie odpowiem na pytania"
-- "Daj znać w komentarzach"
-- "Jeśli masz wątpliwości..."
-
----
-
-### 22. Zastrzeżenia o wiedzy
-AI wspomina o swoich ograniczeniach.
-
-**Przed:** "Moja wiedza sięga do 2024 roku, ale wydaje mi się, że trend utrzymuje się."
-**Po:** (usuń lub zaktualizuj dane)
-
-**Frazy do usunięcia:**
-- "Moja wiedza sięga do..."
-- "Nie mam aktualnych danych"
-- "Na dzień mojej ostatniej aktualizacji"
-- "Mogę się mylić, ale..."
-
----
-
-### 23. Pochlebczy ton
-AI przesadnie chwali pytającego.
-
-**Przed:** "Świetne pytanie! To niezwykle interesujące zagadnienie. Wspaniale, że o to pytasz!"
-**Po:** (przejdź od razu do odpowiedzi)
-
-**Frazy do usunięcia:**
-- "Świetne pytanie!"
-- "To bardzo interesujące"
-- "Wspaniale, że..."
-- "Cieszę się, że pytasz"
-
----
-
-## WYPEŁNIACZE I ASEKURACJA (24-26)
-
-### 24. Zbędne frazy
-AI używa długich konstrukcji zamiast krótkich.
-
-**Wymień:**
-| AI pisze | Człowiek pisze |
-|----------|----------------|
-| ze względu na fakt, że | bo |
-| w celu | żeby |
-| w przypadku gdy | gdy, jeśli |
-| na przestrzeni lat | przez lata |
-| w chwili obecnej | teraz |
-| na dzień dzisiejszy | dziś |
-| w najbliższej przyszłości | niedługo, wkrótce |
-| mając na uwadze | przy, biorąc pod uwagę |
-
----
-
-### 25. Nadmierna asekuracja
-AI zabezpiecza się przed odpowiedzialnością.
-
-**Przed:** "Rozwiązanie potencjalnie mogłoby ewentualnie w pewnym stopniu przyczynić się do poprawy."
-**Po:** "Rozwiązanie poprawi wyniki."
-
-**Słowa do usunięcia:**
-- potencjalnie
-- ewentualnie
-- w pewnym stopniu
-- do pewnego stopnia
-- mogłoby
-- wydaje się, że
-- można by uznać, że
-
----
-
-### 26. Generyczne zakończenia
-AI kończy teksty banałami.
-
-**Przed:** "Przyszłość rysuje się w jasnych barwach. Czas pokaże, jak potoczą się losy branży. Jedno jest pewne – zmiany są nieuniknione."
-**Po:** "Branża zmieni się w ciągu 5 lat – pytanie tylko jak bardzo."
-
-**Zakończenia do usunięcia:**
-- "Przyszłość rysuje się w jasnych barwach"
-- "Czas pokaże"
-- "Jedno jest pewne"
-- "Pozostaje tylko czekać"
-
----
-
-## POLSKIE SPECYFICZNE WZORCE (27-33)
-
-### 27. Anglicyzmy AI
-AI dosłownie tłumaczy angielskie idiomy.
-
-**Przed:** "Treść jest królem w świecie content marketingu. Musisz być na tej samej stronie z klientem."
-**Po:** "Dobra treść sprzedaje. Musisz się z klientem rozumieć."
-
-**Tłumaczenia do poprawy:**
-- "content is king" → "dobra treść sprzedaje"
-- "be on the same page" → "rozumieć się"
-- "think outside the box" → "myśleć kreatywnie"
-- "game changer" → "przełom"
-
----
-
-### 28. Otwieracz "W dzisiejszych czasach"
-AI zaczyna teksty tym samym.
-
-**Przed:** "W dzisiejszym dynamicznie zmieniającym się świecie, w erze cyfrowej transformacji..."
-**Po:** (zacznij od konkretu)
-
-**Otwieracze do usunięcia:**
-- "W dzisiejszych czasach"
-- "W erze cyfrowej"
-- "W dynamicznie zmieniającym się świecie"
-- "Żyjemy w czasach, gdy"
-
----
-
-### 29. Brak kontekstu kulturowego
-AI wstawia amerykańskie realia.
-
-**Przed:** "Jak Super Bowl wpływa na strategie marketingowe polskich firm."
-**Po:** "Jak Sylwester wpływa na strategie marketingowe polskich firm."
-
-**Rzeczy do spolszczenia:**
-- Black Friday → może zostać (znane w Polsce)
-- Thanksgiving → nie ma sensu w polskim kontekście
-- College → studia, uczelnia
-- High school → liceum
-
----
-
-### 30. Bezpłciowy styl - brak opinii i emocji
-AI pisze bez charakteru, stanowiska i emocji.
-
-**Przed:** "Rozwiązanie oferuje funkcjonalności. Użytkownicy mogą korzystać z opcji. System umożliwia realizację zadań."
-**Po:** "Wreszcie CRM, który nie wkurza. Trzy kliknięcia i masz ofertę gotową do wysłania."
-
-**Zasady humanizacji:**
-- Dodaj opinię ("moim zdaniem", "uważam, że")
-- Użyj potocznych słów (gdzie pasują)
-- Napisz, jakbyś mówił do kolegi
-- Pokaż emocje (irytację, entuzjazm, sceptycyzm)
-- Pozwól sobie na suche poczucie humoru
-
----
-
-### 31. Brak konkretu
-AI używa generycznych przykładów, okrągłych liczb, nienazwanych źródeł.
-
-**Przed:** "Wiele firm odniosło sukces dzięki temu podejściu. Wyniki były imponujące."
-**Po:** "InPost zaczynał od 2000 paczkomatów w 2014. Teraz ma 20 000."
-
-**Zasady:**
-- Podaj konkretne daty, liczby, nazwy
-- Zamiast "wiele firm" - nazwy firm
-- Zamiast "duży wzrost" - "wzrost o 34%"
-- Zamiast "eksperci" - imię i stanowisko
-- Jeśli nie masz konkretów - napisz mniej, ale prawdziwie
-
----
-
-### 32. Amerykański entuzjazm
-AI defaultuje do amerykańskiej egzaltacji. Polacy tak nie piszą.
-
-**Przed:** "To niesamowite rozwiązanie, które rewolucjonizuje branżę! Ekscytujące możliwości!"
-**Po:** "Niezłe rozwiązanie. Robi to, co obiecuje."
-
-**Słowa do stonowania:**
-| AI pisze | Człowiek pisze |
-|----------|---------------|
-| Niesamowite! | Niezłe |
-| Fantastyczne! | Dobre |
-| Ekscytujące! | Ciekawe |
-| Rewolucjonizuje! | Zmienia, upraszcza |
-| Absolutnie fenomenalne | (usuń, napisz co konkretnie) |
-
-**Zasada:** Polska komunikacja jest powściągliwa. Understatement > hiperbola.
-
----
-
-### 33. Przecinki po angielsku
-AI stosuje angielskie reguły interpunkcji w polskim tekście.
-
-**Przed:** "Dodatkowo, firma oferuje szkolenia, warsztaty, i konsultacje."
-**Po:** "Firma oferuje też szkolenia, warsztaty i konsultacje."
-
-**Błędy do poprawy:**
-- Przecinek po przysłówku na początku zdania ("Dodatkowo," "Ponadto," "Jednakże,") - w polskim często zbędny
-- Oxford comma przed "i" - w polskim nie stosujemy
-- Przecinek przed "który/która" - w polskim zawsze jest (AI czasem pomija)
-- Przecinek przed "że" - w polskim zawsze jest (AI czasem pomija)
-
----
-
-## WZORCE RYTMU I STRUKTURY (34-37)
-
-### 34. Monotonny rytm zdań
-**NAJWAŻNIEJSZY SYGNAŁ DLA DETEKTORÓW AI.** AI pisze zdania 15-25 słów z minimalną wariacją. Człowiek miesza krótkie (3-5 słów) z długimi (25-40 słów).
-
-**Przed:** "System oferuje wiele funkcji. Użytkownicy mogą korzystać z dashboardu. Raporty generowane są automatycznie. Integracja z innymi narzędziami jest prosta."
-**Po:** "System ma wszystko. Dashboard, automatyczne raporty, integracje - działa od razu po wdrożeniu, bez zabawy w konfigurację."
-
-**Diagnoza:** Policz słowa w każdym zdaniu. Jeśli odchylenie standardowe < 5 słów - tekst brzmi jak AI.
-
-**Zasady:**
-- Mieszaj krótkie zdania (3-5 słów) z długimi (20-35 słów)
-- Używaj zdań jednowyrazowych. Serio.
-- Po 2-3 zdaniach średnich wstaw jedno bardzo krótkie lub bardzo długie
-
----
-
-### 35. Monotonna długość akapitów
-AI pisze każdy akapit 3-5 zdań, podobnej długości. Człowiek pisze akapit jednozdaniowy obok ośmiozdaniowego.
-
-**Przed:** (każdy akapit 3-4 zdania, 50-70 słów)
-**Po:** Zróżnicuj. Czasem jeden akapit to jedno zdanie. Następny może mieć sześć.
-
-**Zasada:** Jeśli wszystkie akapity mają podobną długość - przepisz. Jeden akapit = jedno zdanie jest OK.
-
----
-
-### 36. Szablonowa struktura akapitów
-AI: zdanie wprowadzające → argument → podsumowanie. Każdy akapit. Ten sam schemat.
-
-**Przed:** "Automatyzacja jest ważna. Firmy korzystające z automatyzacji osiągają lepsze wyniki. Dlatego warto inwestować w automatyzację."
-**Po:** "Dlaczego firmy wciąż robią to ręcznie? Automatyzacja jest od lat i kosztuje grosze."
-
-**Zasady:**
-- Zacznij od pytania
-- Zacznij od środka myśli
-- Zakończ pytaniem zamiast podsumowania
-- Usuń zdanie podsumowujące jeśli powtarza wstęp
-
----
-
-### 37. Idealna gramatyka
-AI pisze tekst bez błędów, fragmentów, potocznych skrótów. Prawdziwy polski tekst ma naturalne niedoskonałości.
-
-**Przed:** "Należy rozważyć, czy proponowane rozwiązanie spełnia wszystkie wymagania."
-**Po:** "Czemu? Bo działa. A reszta - dogadamy po wdrożeniu."
-
-**Zasady:**
-- Użyj fragmentów zdań. Świadomie.
-- "Czemu? Bo działa." jest bardziej ludzkie niż idealne zdania
-- Zdania jednosłowowe są OK: "Dokładnie.", "Właśnie.", "Nie."
-- Nie bój się kolokwializmów: "fajnie", "no i co z tego", "da się"
-
----
-
-## PROCES HUMANIZACJI
-
-Gdy użytkownik poda tekst:
-
-1. **Przeskanuj** tekst pod kątem wszystkich 37 wzorców
-2. **Wylistuj** wykryte wzorce z cytatami
-3. **Pokaż** poprawki dla każdego wzorca (przed → po)
-4. **Przepisz** cały tekst w wersji humanizowanej
-5. **Sprawdź rytm (burstiness)** - policz słowa w każdym zdaniu przepisanego tekstu. Jeśli odchylenie standardowe < 5 słów, przepisz ponownie z większą wariacją.
-6. **Sprawdź powtórzenia** - wyszukaj powtórzone słowa w sąsiadujących zdaniach (okno 2 zdań). Zamień synonimy lub przebuduj zdanie.
-7. **Sprawdź spójność rejestru** - nie mieszaj ultraoficjalnego z potocznym w jednym akapicie. Cały tekst powinien mieć spójny rejestr (chyba że zmiana jest celowa).
-8. **Zachowaj** sens i merytorykę oryginału
-
-### Format odpowiedzi
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 15 | Nadużycie pauz | trzy wtrącenia w jednym zdaniu | w krótkim tekście zero, w długim jedna lub dwie |
+| 16 | Nadużycie pogrubień | pogrubione co drugie słowo | jedno miejsce na akapit, albo wcale |
+| 17 | Punktory z nagłówkami | „**Szybkość:** system działa szybko” | zdanie zamiast etykiety |
+| 18 | Wielkie Litery W Nagłówkach | „Jak Skutecznie Zarządzać Zespołem” | wielka tylko na początku |
+| 19 | Emoji | rakieta w nagłówku | usuń poza social media |
+| 20 | CamelCase w hashtagach | #TransformacjaCyfrowa | małe litery |
+
+### Komunikacja (21-23)
+
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 21 | Artefakty chatbota | „mam nadzieję, że to pomoże” | usuń albo zamień na konkretne CTA |
+| 22 | Zastrzeżenia o wiedzy | „moja wiedza sięga do” | usuń |
+| 23 | Pochlebczy ton | „świetne pytanie” | przejdź do rzeczy |
+
+### Wypełniacze (24-26)
+
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 24 | Zbędne frazy | „ze względu na fakt, że” | „bo” |
+| 25 | Nadmierna asekuracja | „potencjalnie mogłoby ewentualnie” | jedno zastrzeżenie albo żadne |
+| 26 | Generyczne zakończenia | „przyszłość rysuje się w jasnych barwach” | zakończ ostatnim konkretem |
+
+### Polska specyfika (27-33)
+
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 27 | Kalki idiomów | „treść jest królem”, „być na tej samej stronie” | polski odpowiednik albo wprost |
+| 28 | Otwieracz „w dzisiejszych czasach” | „w dynamicznie zmieniającym się świecie” | zacznij od konkretu |
+| 29 | Amerykańskie realia | Super Bowl w tekście dla polskiej firmy | polski odpowiednik, jeśli sens na to pozwala |
+| 30 | Wygładzony charakter | opinia autora zamieniona w neutralny opis | nie ścieraj opinii, ale też nie dopisuj swojej |
+| 31 | Ogólnik zamiast konkretu | „wyniki były imponujące” | chroń konkret autora, brakującego nie wymyślaj |
+| 32 | Amerykański entuzjazm | „niesamowite! rewolucjonizuje branżę!” | powściągliwość, understatement |
+| 33 | Interpunkcja po angielsku | „Dodatkowo,” oxford comma | polskie reguły |
+
+### Rytm i struktura (34-37)
+
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 34 | Monotonny rytm zdań | wszystkie zdania 12-22 słów | mieszaj krótkie z długimi |
+| 35 | Monotonna długość akapitów | każdy akapit 3-5 zdań | różnicuj |
+| 36 | Szablonowa struktura akapitu | wstęp, argument, podsumowanie, za każdym razem | zmień punkt wejścia |
+| 37 | Wygładzona nieregularność | redakcja usunęła fragmenty i potocyzmy autora | zostaw je, ale nie dodawaj nowych |
+
+### Retoryka (38-46)
+
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 38 | Kontrast binarny | „to nie X. To Y.” | powiedz Y |
+| 39 | Odchrząkiwanie na wejściu | „rzecz w tym, że”, „powiem wprost” | wytnij i zacznij od tezy |
+| 40 | Fałszywe olśnienie | „czego nikt ci nie powie” | sama teza, bez zapowiedzi |
+| 41 | Dwukropek z rewelacją | „najlepsze: uczy się sam” | normalne zdanie |
+| 42 | Dramatyczna fragmentacja | „I tyle. To cała filozofia.” | pełne zdanie |
+| 43 | Zagrywka retoryczna | „a gdybym ci powiedział”, „pomyśl o tym:” | usuń zagajenie |
+| 44 | Pseudogłęboka puenta | metafora na koniec zamiast wniosku | skasuj, nie przepisuj na lepszą metaforę |
+| 45 | Zakończenie-streszczenie | „podsumowując”, „reasumując” | czytelnik właśnie to czytał |
+| 46 | Lista przecząca | „to nie narzędzie. Nie framework. To sposób myślenia.” | powiedz, czym to jest |
+
+### Polszczyzna w detalach (47-52)
+
+| # | Wzorzec | Brzmi jak | Poprawka |
+|---|---------|-----------|----------|
+| 47 | Rzeczownikowość i styl urzędowy | „dokonać analizy”, „w celu realizacji” | czasownik |
+| 48 | Kalki składniowe | „Ja uważam, że”, angielski szyk zdania | polski szyk, nowa informacja na końcu |
+| 49 | Zbędne zaimki | „my oferujemy”, „moja ręka” | polski opuszcza zaimek |
+| 50 | Łańcuchy „który” i wata | „pozwala na to, aby” | „pozwala” |
+| 51 | Polska typografia | proste cudzysłowy, em dash, 1,000,000 | „tekst”, pauza –, 1 000 000 |
+| 52 | Wielkie litery po angielsku | „w Lutym”, „Poniedziałek”, „Internet” | małą literą |
+
+## Przebieg pracy
+
+1. Przeczytaj cały tekst, zanim cokolwiek zmienisz.
+2. Przeczytaj [wzorce.md](wzorce.md), jeśli tekst ma więcej niż kilka akapitów.
+3. Ustal sedno tekstu i 3-5 sygnałów głosu autora do zachowania: słownictwo, tempo, bezpośredniość, humor, wahanie, dygresje. Zostaw tę notatkę dla siebie, nie wypisuj jej. Jeśli nie umiesz ustalić sedna, zapytaj.
+4. Sprawdź rejestr: jak autor zwraca się do czytelnika, jakiego rodzaju gramatycznego używa o sobie. Zapisz to sobie i trzymaj się tego w całym tekście.
+5. Jeśli to prośba o wykrywanie, zwróć raport z sekcji Dwa tryby i skończ.
+6. Jeśli to redakcja, zrób minimalne skuteczne zmiany, a potem sam sprawdź wynik według [eval.md](eval.md).
+7. Jeśli któryś punkt evala wypada źle, popraw tekst i sprawdź jeszcze raz.
+8. Zwróć cały poprawiony tekst i krótką sekcję **Co zmieniłem**.
+
+## Format odpowiedzi
+
+### Redakcja
 
 ```
-## Wykryte wzorce AI
+[cały poprawiony tekst]
 
-1. **Wzorzec #8 - Słownictwo AI**
-   - "Ponadto warto zauważyć" → "Też"
-
-2. **Wzorzec #4 - Język promocyjny**
-   - "wyjątkowe rozwiązanie" → "rozwiązanie"
-
-## Tekst po humanizacji
-
-[przepisany tekst]
+## Co zmieniłem
+- #34 rytm: zdania miały po 14-19 słów, rozbiłem trzy i skróciłem dwa
+- #47 rzeczownikowość: „dokonać wdrożenia” na „wdrożyć” (4 miejsca)
+- #2 źródła: „badania pokazują” bez źródła, zostawiłem znacznik [źródło?]
+- struktura: przeniosłem akapit o cenach wyżej, bo odpowiada na pytanie z pierwszego zdania
 ```
 
----
+### Wykrywanie
 
-## Przykład pełnej humanizacji
+```
+## Znalezione wzorce
 
-### Oryginalny tekst (AI):
-"W dzisiejszych dynamicznie zmieniających się czasach niezwykle istotne jest zrozumienie fundamentalnego znaczenia transformacji cyfrowej. Eksperci zgodnie twierdzą, że firmy – zarówno małe, jak i duże – muszą się adaptować. Ponadto warto zauważyć, że rozwiązania chmurowe stanowią klucz do sukcesu, oferując szybkość, bezpieczeństwo i skalowalność. Mam nadzieję, że ten artykuł był pomocny!"
+**#28 Otwieracz „w dzisiejszych czasach”**
+> „W dzisiejszym dynamicznie zmieniającym się świecie…”
+Zacznij od drugiego zdania.
 
-### Wykryte wzorce:
-- #28 "W dzisiejszych czasach"
-- #8 "niezwykle istotne", "fundamentalnego"
-- #2 "Eksperci zgodnie twierdzą"
-- #15 wtrącenie w myślnikach
-- #8 "Ponadto warto zauważyć"
-- #9 "stanowią"
-- #11 sztuczna reguła trzech
-- #21 "Mam nadzieję, że pomocny"
-- #34 monotonny rytm zdań (wszystkie zdania 12-18 słów)
+**#2 Puste odwołania do źródeł**
+> „Eksperci zgodnie twierdzą, że firmy muszą się adaptować.”
+Nazwij źródło albo wytnij zdanie.
 
-### Tekst po humanizacji:
-"Firmy muszą przejść na cyfrowe rozwiązania albo zostaną w tyle. Chmura to podstawa – skalujesz zasoby w minuty zamiast tygodni. Nie ma już wymówek."
+Mogę to zredagować, jeśli chcesz.
+```
 
----
+## Pochodzenie
 
-## SZYBKA CHECKLISTA
-
-Po humanizacji sprawdź:
-
-- [ ] **Rytm zdań** - czy są krótkie (3-5 słów) i długie (20+ słów)? Nie same średnie.
-- [ ] **Długość akapitów** - czy są różnej długości? Nie wszystkie 3-5 zdań.
-- [ ] **Opinia** - czy tekst ma stanowisko? Czy autor coś uważa?
-- [ ] **Konkrety** - czy są daty, liczby, nazwy? Czy można dodać?
-- [ ] **Ton** - czy brzmi jak Polak? Nie jak przetłumaczony Amerykanin?
-- [ ] **Powtórzenia** - czy to samo słowo nie pojawia się w sąsiadujących zdaniach?
-- [ ] **Strona bierna** - czy można zamienić "można zaobserwować" na "widać"?
-- [ ] **Rejestr** - czy styl jest spójny? Nie skacze z potocznego na urzędowy?
-- [ ] **Początki** - czy tekst NIE zaczyna się od "W dzisiejszych czasach"?
-- [ ] **Zakończenie** - czy NIE kończy się banałem o przyszłości?
+Polski fork [blader/humanizer](https://github.com/blader/humanizer). Zasady redakcji, tryb wykrywania i eval przejęte z [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) i dostosowane do polszczyzny.

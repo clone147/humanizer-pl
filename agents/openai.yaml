@@ -1,0 +1,4 @@
+interface:
+  display_name: "/humanizer-pl"
+  short_description: "Usuwa ślady pisania AI z polskiego tekstu, zachowując głos autora."
+  default_prompt: "Użyj $humanizer-pl, żeby usunąć wzorce AI z tego tekstu, zachowując mój styl."

@@ -1,8 +1,26 @@
-# Polski Humanizer dla Claude Code
+# Humanizer PL
 
-Skill do Claude Code usuwający charakterystyczne ślady pisania AI z polskich tekstów.
+Skill do Claude Code, który redaguje polskie teksty tak, żeby przestały brzmieć jak AI, ale nadal brzmiały jak autor.
 
-Polski fork [blader/humanizer](https://github.com/blader/humanizer) dostosowany do polskich wzorców językowych.
+Ta druga część jest ważniejsza. Większość humanizerów wygładza tekst do jednej neutralnej papki, a to też czyta się jak model. Ten skill najpierw ustala, jak pisze konkretna osoba, i dopiero potem wycina to, co dopisał do niej generator.
+
+## Co jest w środku
+
+52 wzorce pisania AI po polsku, dwa tryby pracy i eval, który skill przejeżdża sam na sobie przed oddaniem tekstu.
+
+Katalog obejmuje warstwy, których angielskie humanizery nie łapią, bo po polsku wyglądają inaczej albo w ogóle nie mają odpowiednika:
+
+| Warstwa | Przykład |
+|---------|----------|
+| Rzeczownikowość i styl urzędowy | „dokonać analizy” zamiast „przeanalizować” |
+| Zbędne zaimki | „my oferujemy”, „otwórz swój laptop” |
+| Kalki składniowe | „Ja uważam, że”, angielski szyk zdania |
+| Polska typografia | proste cudzysłowy, em dash, 1,000,000 zamiast 1 000 000 |
+| Wielkie litery po angielsku | „w Lutym”, „Poniedziałek”, „Internet” |
+| Amerykański entuzjazm | „niesamowite!” tam, gdzie Polak napisze „niezłe” |
+| Interpunkcja po angielsku | oxford comma, przecinek po „Ponadto” |
+
+Do tego rzeczy uniwersalne: kontrasty binarne, odchrząkiwanie na wejściu, dwukropek z rewelacją, pseudogłęboka puenta, zakończenie-streszczenie, puste odwołania do źródeł, monotonny rytm zdań.
 
 ## Instalacja
 
@@ -10,92 +28,69 @@ Polski fork [blader/humanizer](https://github.com/blader/humanizer) dostosowany 
 git clone https://github.com/clone147/humanizer-pl.git ~/.claude/skills/humanizer-pl
 ```
 
-Lub dodaj do ustawień Claude Code:
-```json
-{
-  "skills": ["clone147/humanizer-pl"]
-}
-```
+Albo wklej do Claude Code:
+
+> Zainstaluj ten skill globalnie: https://github.com/clone147/humanizer-pl
 
 ## Użycie
 
-W Claude Code wpisz:
+### Redakcja
+
 ```
 /humanizer-pl
 
-[wklej tekst do humanizacji]
+[twój tekst]
 ```
 
-Lub po prostu:
+Dostajesz cały poprawiony tekst i sekcję **Co zmieniłem** z numerami wzorców.
+
+### Wykrywanie
+
 ```
-Humanizuj ten tekst:
+/humanizer-pl czy to brzmi jak AI?
 
-[wklej tekst]
+[tekst]
 ```
 
-## Co wykrywa?
+Dostajesz listę wzorców z zacytowanymi linijkami i krótką poprawką dla każdej. Bez przepisywania, bez procentów, bez wyroku „to napisała AI”. Detektory zgadują, a nazwany wzorzec możesz sprawdzić sam.
 
-37 wzorców typowych dla polskich tekstów generowanych przez AI:
+## Czego skill nie robi
 
-### Wzorce treści (1-7)
-1. Nadmierne podkreślanie znaczenia ("kluczowy", "przełomowy")
-2. Puste odwołania do źródeł ("Eksperci twierdzą...")
-3. Nadużycie imiesłowów ("symbolizując", "odzwierciedlając")
-4. Język promocyjny ("wyjątkowy", "niezwykły")
-5. Niejasne atrybucje ("Wielu uważa", "Powszechnie wiadomo")
-6. Formułkowe wyzwania ("Pomimo wyzwań, rozwija się")
-7. Nadmierna wyważoność ("Z jednej strony... z drugiej strony...")
+- nie dopisuje faktów, liczb, dat, nazw ani opinii, których w tekście nie było; jeśli akapit wisi w próżni, zostawia znacznik `[dane?]` i pyta
+- nie zmienia formy zwracania się do czytelnika (Pan/Pani, ty, wy, bezosobowo)
+- nie zmienia rodzaju gramatycznego autora
+- nie wstawia sztucznych fragmentów zdań i potocyzmów, żeby „brzmiało ludzko”
+- nie ściera opinii, przekleństw ani szorstkości, jeśli należą do autora
 
-### Wzorce językowe (8-14)
-8. Słownictwo AI ("Ponadto", "W kontekście", "Niezwykle istotne")
-9. Unikanie "jest" ("stanowi", "pełni rolę")
-10. Negatywne paralelizmy ("To nie tylko X, to także Y")
-11. Wymuszona reguła trzech
-12. Cyklowanie synonimów
-13. Fałszywe zakresy ("od X do Y")
-14. Strona bierna i bezosobowość ("Można zaobserwować" → "Widać")
-
-### Wzorce stylu (15-20)
-15. Nadużycie myślników
-16. Nadużycie pogrubień
-17. Listy z nagłówkami
-18. Wielkie Litery W Nagłówkach
-19. Emoji w tekście
-20. CamelCase w hashtagach
-
-### Wzorce komunikacji (21-23)
-21. Artefakty chatbota ("Mam nadzieję, że to pomoże!")
-22. Zastrzeżenia o wiedzy ("Moja wiedza sięga do...")
-23. Pochlebczy ton ("Świetne pytanie!")
-
-### Wypełniacze i asekuracja (24-26)
-24. Zbędne frazy ("ze względu na fakt, że" → "bo")
-25. Nadmierna asekuracja ("potencjalnie mógłby ewentualnie")
-26. Generyczne zakończenia ("Przyszłość rysuje się w jasnych barwach")
-
-### Polskie specyficzne (27-33)
-27. Anglicyzmy AI ("treść jest królem")
-28. Otwieracz "W dzisiejszych czasach"
-29. Brak kontekstu kulturowego
-30. Bezpłciowy styl - brak opinii i emocji
-31. Brak konkretu (generyczne przykłady zamiast dat, liczb, nazw)
-32. Amerykański entuzjazm ("Niesamowite!" → "Niezłe")
-33. Przecinki po angielsku (Oxford comma, przecinek po przysłówku)
-
-### Wzorce rytmu i struktury (34-37)
-34. Monotonny rytm zdań (najważniejszy sygnał detektorów AI!)
-35. Monotonna długość akapitów
-36. Szablonowa struktura akapitów
-37. Idealna gramatyka (brak fragmentów, kolokwializmów)
+Poprzednia wersja skilla robiła pierwsze i czwarte. Wzorce 30, 31 i 37 kazały modelowi dopisywać konkretne liczby, nazwy firm i celowe niedoskonałości gramatyczne. To był najszybszy sposób na tekst, który brzmi ludzko i kłamie.
 
 ## Przykład
 
-### Przed (tekst AI):
-> W dzisiejszych dynamicznie zmieniających się czasach niezwykle istotne jest zrozumienie fundamentalnego znaczenia transformacji cyfrowej. Eksperci zgodnie twierdzą, że firmy muszą się adaptować. Ponadto warto zauważyć, że rozwiązania chmurowe stanowią klucz do sukcesu.
+Przed:
 
-### Po (humanizowany):
-> Firmy muszą przejść na cyfrowe rozwiązania albo zostaną w tyle. Chmura to podstawa – skalujesz zasoby w minuty zamiast tygodni.
+> W dzisiejszym dynamicznie zmieniającym się świecie niezwykle istotne jest zrozumienie fundamentalnego znaczenia transformacji cyfrowej. Eksperci zgodnie twierdzą, że firmy muszą się adaptować. Ponadto warto zauważyć, że rozwiązania chmurowe stanowią klucz do sukcesu.
+
+Po:
+
+> Firmy muszą przejść na cyfrowe rozwiązania albo zostaną w tyle. Chmura to podstawa, bo zasoby skalujesz w minuty zamiast w tygodnie.
+
+Wykryte wzorce: #28 otwieracz, #8 słownictwo AI, #2 puste odwołanie do źródeł, #1 nadmuchane znaczenie, #9 „stanowią”.
+
+## Pliki
+
+| Plik | Zawartość |
+|------|-----------|
+| `SKILL.md` | tryby, zasady redakcji, listy słów, indeks 52 wzorców, przebieg pracy |
+| `wzorce.md` | pełny katalog z przykładami przed i po |
+| `eval.md` | pass/fail, które skill przejeżdża na własnej redakcji |
+| `agents/openai.yaml` | konfiguracja dla Codex |
+
+## Skąd to się wzięło
+
+Zaczęło się jako polski fork [blader/humanizer](https://github.com/blader/humanizer).
+
+Zasady redakcji, tryb wykrywania i pomysł na eval pochodzą z [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop). Wzorce 38-46 to polskie odpowiedniki jego katalogu retorycznego. Wzorce 47-52 dopisałem od zera, bo dotyczą fleksji, szyku i typografii, a tam angielski oryginał nie ma czego przenosić.
 
 ## Licencja
 
-MIT - jak oryginał
+MIT
