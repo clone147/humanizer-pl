@@ -4,6 +4,13 @@ Pełny katalog do [SKILL.md](SKILL.md). Każdy wzorzec ma przykład przed i po.
 
 Jedna uwaga na start. Wersje „po” pokazują kierunek, nie długość docelową. Skala cięcia ma odpowiadać skali problemu w konkretnym tekście, a nie proporcjom z tych przykładów.
 
+Przykłady nie upoważniają do pomijania informacji ani dodawania faktów. Jeśli krótka wersja gubi kontekst, zachowaj pełniejsze wyjaśnienie. Polecenia „usuń” i „skasuj” dotyczą tylko fragmentów zbędnych w danym tekście; zasady czytelności i wierności z SKILL.md mają pierwszeństwo.
+
+**Przykład nadmiernego skrótu:**
+- Przed: „Zanim włączysz automatyczne wysyłanie ofert, sprawdź, czy w CRM są aktualne ceny. Jeśli system pobierze starą cenę, klient dostanie ofertę, której nie będziesz mógł zrealizować na podanych warunkach.”
+- Za krótko: „Sprawdź ceny w CRM przed automatyzacją. Inaczej oferta będzie błędna.”
+- Dobrze: „Zanim włączysz automatyczne wysyłanie ofert, sprawdź, czy ceny w CRM są aktualne. Jeśli system pobierze starą cenę, klient dostanie ofertę, której nie będziesz mógł zrealizować na podanych warunkach.”
+
 ---
 
 ## Treść (1-7)
@@ -15,7 +22,7 @@ AI nadaje wszystkiemu przełomowe znaczenie.
 **Przed:** „Ten kluczowy moment stanowi przełomowe osiągnięcie o nieocenionym znaczeniu dla dalszego rozwoju.”
 **Po:** „To ważny krok w rozwoju projektu.”
 
-Słowa do usunięcia: kluczowy, przełomowy, nieoceniony, fundamentalny, transformacyjny, bezprecedensowy.
+Słowa do oceny w kontekście: kluczowy, przełomowy, nieoceniony, fundamentalny, transformacyjny, bezprecedensowy.
 
 Zasada: podaj fakt, ocenę zostaw czytelnikowi.
 
@@ -23,10 +30,10 @@ Zasada: podaj fakt, ocenę zostaw czytelnikowi.
 
 ### 2. Puste odwołania do źródeł
 
-AI powołuje się na badania i ekspertów, których nie ma.
+Tekst może powoływać się na ekspertów lub badania bez podania źródła. Nie zakładaj, że źródło nie istnieje; oznacz brak atrybucji.
 
 **Przed:** „Eksperci zgodnie twierdzą, że badania jednoznacznie pokazują rosnące zainteresowanie tematem.”
-**Po:** „Zainteresowanie tematem rośnie.”
+**Po:** „Według ekspertów zainteresowanie tematem rośnie. [jakich ekspertów, jakie badania?]”
 
 Frazy: „eksperci twierdzą”, „badania pokazują”, „według specjalistów”, „jak wynika z analiz”, „raporty branżowe sugerują”.
 
@@ -36,30 +43,23 @@ Nigdy nie dopisuj źródła sam. Jeśli autor go nie podał, zapytaj albo zostaw
 
 ### 3. Powierzchowna analiza na imiesłowach
 
-AI nadużywa imiesłowów na -ąc do pseudoanalizy.
+Nagromadzone imiesłowy mogą udawać wyjaśnienie. Nie zastępuj ich wymyśloną przyczyną.
 
-**Przed:** „Marka rozwija się, symbolizując innowacyjność, odzwierciedlając trendy i podkreślając jakość.”
-**Po:** „Marka rozwija się dzięki innowacyjności i jakości produktów.”
+**Przed:** „Marka wprowadza nowe produkty, poszerzając ofertę i zwiększając wybór dla klientów.”
+**Po:** „Marka wprowadza nowe produkty, więc klienci mają większy wybór.”
 
-Konstrukcje: symbolizując wartości, odzwierciedlając potrzeby, podkreślając znaczenie, uosabiając ideały, wpisując się w trend.
-
-Test: jeśli imiesłów nie mówi, co z czego wynika, to jest ozdobnik.
+Relacja wynika z oryginału. Gdy tekst jedynie przypisuje marce „innowacyjność”, nie wnioskuj, że dzięki niej marka rośnie.
 
 ---
 
 ### 4. Język promocyjny
 
-AI pisze jak folder reklamowy.
+Przymiotniki promocyjne warto zastąpić opisem działania, jeśli autor już go podał.
 
-**Przed:** „To wyjątkowe, niezwykłe i fascynujące rozwiązanie o imponujących możliwościach.”
-**Po:** „Rozwiązanie ma trzy przydatne funkcje: X, Y, Z.”
+**Przed:** „To wyjątkowe rozwiązanie o imponujących możliwościach: porównuje oferty i przypomina o terminach.”
+**Po:** „Rozwiązanie porównuje oferty i przypomina o terminach.”
 
-| AI pisze | Zamień na |
-|----------|-----------|
-| wyjątkowy | konkret |
-| niezwykły | inny niż X |
-| fascynujący | ciekawy |
-| imponujący | duży, szybki, tani (co dokładnie?) |
+Jeśli brak opisu możliwości, zapytaj lub oznacz `[jakie możliwości?]`. Nie wymyślaj funkcji.
 
 ---
 
@@ -68,7 +68,7 @@ AI pisze jak folder reklamowy.
 AI ukrywa brak wiedzy za ogólnikami.
 
 **Przed:** „Wielu uważa, że powszechnie wiadomo, iż nie da się ukryć rosnącego znaczenia tematu.”
-**Po:** „Temat zyskuje na znaczeniu.”
+**Po:** „Wiele osób uważa, że temat zyskuje na znaczeniu. [kto konkretnie?]”
 
 Frazy: „wielu uważa”, „powszechnie wiadomo”, „nie da się ukryć”, „trudno zaprzeczyć”, „każdy wie”.
 
@@ -76,27 +76,23 @@ Frazy: „wielu uważa”, „powszechnie wiadomo”, „nie da się ukryć”, 
 
 ### 6. Formułkowe wyzwania
 
-AI ma szablon na trudności i sukces.
+Ogólne zdanie o rozwoju mimo trudności może wymagać doprecyzowania, ale nie upoważnia do dopisania liczb ani kryzysu.
 
-**Przed:** „Pomimo licznych wyzwań firma dynamicznie się rozwija. Mimo trudności sektor prosperuje.”
-**Po:** „Firma rośnie o 20% rocznie mimo kryzysu w branży.”
+**Przed:** „Pomimo licznych wyzwań firma dynamicznie się rozwija.”
+**Po:** „Firma szybko się rozwija mimo trudności. [jakich trudności?]”
 
-Szablony: „pomimo wyzwań, rozwija się”, „mimo trudności, prosperuje”, „wbrew przeciwnościom, odnosi sukces”.
-
-Liczba w wersji „po” jest tylko przykładem. Jeśli autor nie podał liczby, wytnij szablon i zostaw samo zdanie o wzroście.
+Zachowaj informację o trudnościach, jeśli jest częścią tezy autora.
 
 ---
 
 ### 7. Nadmierna wyważoność
 
-AI zawsze pokazuje obie strony, nawet gdy jedna jest oczywista.
+Zestawienie zalet i ograniczeń bywa potrzebne. Poprawiaj rozwlekłość, zachowując obie strony i stanowisko autora.
 
-**Przed:** „Z jednej strony rozwiązanie ma wiele zalet, z drugiej strony istnieją również pewne wady i ograniczenia, które należy wziąć pod uwagę.”
-**Po:** „Rozwiązanie działa, choć instalacja mogłaby być prostsza.”
+**Przed:** „Z jednej strony rozwiązanie skraca pracę, z drugiej strony jego instalacja zajmuje dwa dni.”
+**Po:** „Rozwiązanie skraca pracę, choć jego instalacja zajmuje dwa dni.”
 
-Konstrukcje: „z jednej strony… z drugiej strony”, „ma zarówno zalety, jak i wady”, „nie jest pozbawione pewnych ograniczeń”.
-
-Uwaga na kierunek poprawki. Jeśli autor ma stanowisko, wydobądź je z waty. Jeśli autor go nie ma, nie wymyślaj mu poglądu, tylko skróć wyliczankę.
+Nie dopisuj wad, zalet ani oceny. Naturalna konstrukcja „z jednej strony… z drugiej strony” może zostać.
 
 ---
 
@@ -104,7 +100,7 @@ Uwaga na kierunek poprawki. Jeśli autor ma stanowisko, wydobądź je z waty. Je
 
 ### 8. Słownictwo AI
 
-Te słowa to sygnatury modeli językowych.
+Te słowa bywają nadużywane, ale same nie świadczą o autorstwie AI. Oceniaj ich funkcję w zdaniu; poniższe zamiany są możliwościami, nie regułami.
 
 **Przed:** „Ponadto warto zauważyć, że w kontekście analizy niezwykle istotne jest zrozumienie fundamentalnych aspektów.”
 **Po:** „Ważne jest też zrozumienie podstaw.”
@@ -124,25 +120,21 @@ Te słowa to sygnatury modeli językowych.
 
 ### 9. Unikanie słowa „jest”
 
-AI nadużywa synonimów „jest”.
+„Stanowi”, „pełni rolę” i „charakteryzuje się” mogą być poprawne. Upraszczaj je, gdy obciążają zdanie, bez gubienia informacji.
 
-**Przed:** „Firma stanowi lidera rynku, pełni rolę innowatora i charakteryzuje się elastycznością.”
-**Po:** „Firma jest liderem rynku i szybko się adaptuje.”
-
-stanowi → jest. pełni rolę → jest. charakteryzuje się → jest, ma. wyróżnia się → jest, ma.
+**Przed:** „Firma pełni rolę dostawcy oprogramowania i charakteryzuje się elastycznym podejściem do umów.”
+**Po:** „Firma dostarcza oprogramowanie i elastycznie podchodzi do umów.”
 
 ---
 
 ### 10. Negatywny paralelizm
 
-AI uwielbia „nie tylko X, ale także Y”.
+Konstrukcja „nie tylko X, ale także Y” może podkreślać rzeczywisty zakres. Nie usuwaj informacji X tylko po to, żeby wyeksponować Y.
 
-**Przed:** „To nie tylko narzędzie, to także filozofia. Nie chodzi wyłącznie o zysk, ale przede wszystkim o wartości.”
-**Po:** „Narzędzie opiera się na wartościach, nie tylko zysku.”
+**Przed:** „System nie tylko zapisuje zgłoszenia, ale także przypisuje je do konsultantów.”
+**Po:** „System zapisuje zgłoszenia i przypisuje je do konsultantów.”
 
-Konstrukcje: „to nie tylko X, to także Y”, „nie chodzi wyłącznie o X”, „to znacznie więcej niż tylko”.
-
-Blisko wzorca #38 i #46. Różnica: tu chodzi o dopisywanie drugiego członu, tam o zaprzeczanie zamiast twierdzenia.
+Wersja oryginalna też może zostać, jeśli odpowiada na przekonanie czytelnika, że system wyłącznie zapisuje zgłoszenia.
 
 ---
 
@@ -151,7 +143,7 @@ Blisko wzorca #38 i #46. Różnica: tu chodzi o dopisywanie drugiego członu, ta
 AI wymusza listy trzyelementowe.
 
 **Przed:** „Platforma oferuje szybkość, niezawodność i skalowalność. Zapewnia bezpieczeństwo, wygodę i elastyczność.”
-**Po:** „Platforma jest szybka i niezawodna. Łatwo ją skalować.”
+**Po:** „Platforma działa szybko i niezawodnie, a jej skalę można zwiększać. Zapewnia też bezpieczeństwo, wygodę i elastyczność.”
 
 Jeśli naprawdę są trzy równie ważne rzeczy, zostaw trzy. Problem zaczyna się, gdy trzeci element jest dopisany dla rytmu.
 
@@ -172,12 +164,12 @@ Diagnoza: usunięcie słowa nie zmienia sensu zdania, więc słowo wypada.
 
 ### 13. Fałszywe zakresy
 
-AI wymusza konstrukcje „od X do Y”.
+Zakres i przykłady mogą być istotną informacją. Nie zamieniaj ich automatycznie na „wszystkie” lub „różne”.
 
 **Przed:** „Rozwiązanie sprawdza się w firmach od małych startupów po duże korporacje, od branży IT po sektor finansowy.”
-**Po:** „Rozwiązanie działa w firmach każdej wielkości.”
+**Po:** „Rozwiązanie sprawdza się zarówno w małych startupach, jak i dużych korporacjach, w branży IT i sektorze finansowym.”
 
-„od X do Y” najczęściej znaczy „różne” albo „wszystkie”. „począwszy od X, a skończywszy na Y” prawie zawsze wypada.
+Nie rozszerzaj twierdzenia na branże lub odbiorców niewymienionych przez autora.
 
 ---
 
@@ -209,9 +201,9 @@ Wyjątek: styl bezosobowy bywa świadomym wyborem w dokumentacji, regulaminie i 
 AI wtrąca za dużo dygresji.
 
 **Przed:** „Firma – założona w 2020 roku – oferuje rozwiązania – głównie dla sektora MŚP – które pomagają – co warto podkreślić – w automatyzacji.”
-**Po:** „Firma założona w 2020 oferuje automatyzację dla MŚP.”
+**Po:** „Firma założona w 2020 roku oferuje rozwiązania pomagające w automatyzacji, głównie dla MŚP.”
 
-W krótkim tekście zero wtrąceń w pauzach. W dłuższym jedno lub dwa, jeśli wyraźnie biją przecinek, kropkę i nawias. Skupiska pauz wycinaj.
+Gdy pauzy utrudniają czytanie, zamień część na przecinki, nawiasy lub osobne zdanie. Zachowaj informacje we wtrąceniach, jeśli są potrzebne. Nie stosuj limitu pauz zależnego od długości tekstu.
 
 O tym, którego znaku użyć, jest wzorzec #51.
 
@@ -239,7 +231,7 @@ AI robi nagłówek z każdego punktu.
 
 **Po:**
 - system działa szybko i niezawodnie
-- dane są szyfrowane end-to-end
+- system jest bezpieczny
 
 Blisko tego: punktory tam, gdzie dwa zdania prozy czytałoby się lepiej, i nagłówek nad sekcją długą na dwa zdania.
 
@@ -263,7 +255,7 @@ AI rozsypuje emoji jak konfetti.
 **Przed:** „Nasz produkt jest szybki 🚀, bezpieczny 🔒 i innowacyjny ✨! Zapraszamy 🔥💪”
 **Po:** „Nasz produkt jest szybki, bezpieczny i nowoczesny.”
 
-W social media emoji są w porządku. W nagłówku dokumentu, oferty czy artykułu nie.
+Dobierz emoji do autora, odbiorcy i miejsca publikacji. Usuń nadmiar, jeśli rozprasza, bez automatycznego zakazu dla całego gatunku.
 
 ---
 
@@ -272,7 +264,7 @@ W social media emoji są w porządku. W nagłówku dokumentu, oferty czy artyku�
 **Przed:** „#TworzenieTreści #ZarządzanieProjektem #TransformacjaCyfrowa”
 **Po:** „#tworzenietresci #zarzadzanieprojektem #transformacjacyfrowa”
 
-CamelCase w hashtagu to konwencja angielska, bo poprawia czytelność zbitek bez ogonków. Po polsku wygląda obco.
+Nie zmieniaj czytelnego zapisu hashtagu tylko dlatego, że używa wielkich liter między słowami. Powyższa zamiana nie jest zalecaną poprawką; zachowaj zapis autora, o ile użytkownik nie określił innej konwencji.
 
 ---
 
@@ -283,7 +275,9 @@ CamelCase w hashtagu to konwencja angielska, bo poprawia czytelność zbitek bez
 AI zostawia ślady rozmowy w tekście, który rozmową nie jest.
 
 **Przed:** „Mam nadzieję, że ten artykuł był pomocny! Jeśli masz pytania, chętnie odpowiem w komentarzach.”
-**Po:** (usuń, albo zamień na konkretne wezwanie do działania)
+**Po:** zostaw, jeśli to autentyczne zakończenie autora; usuń, jeśli jest artefaktem rozmowy z chatbotem.
+
+Zostaw autentyczne zaproszenie do kontaktu, jeśli pasuje do autora i publikacji. Nie wymyślaj nowego zobowiązania ani CTA.
 
 Frazy: „mam nadzieję, że to pomoże”, „chętnie odpowiem na pytania”, „daj znać w komentarzach”, „jeśli masz wątpliwości”.
 
@@ -292,7 +286,7 @@ Frazy: „mam nadzieję, że to pomoże”, „chętnie odpowiem na pytania”, 
 ### 22. Zastrzeżenia o wiedzy
 
 **Przed:** „Moja wiedza sięga do 2024 roku, ale wydaje mi się, że trend utrzymuje się.”
-**Po:** (usuń albo zaktualizuj dane)
+**Po:** zachowaj rzeczywiste ograniczenie wiedzy autora. Usuń wyłącznie artefakt chatbota; nie aktualizuj danych z domysłu.
 
 Frazy: „moja wiedza sięga do”, „nie mam aktualnych danych”, „na dzień mojej ostatniej aktualizacji”, „mogę się mylić, ale”.
 
@@ -329,7 +323,7 @@ Frazy: „świetne pytanie”, „to bardzo interesujące”, „wspaniale, że�
 ### 25. Nadmierna asekuracja
 
 **Przed:** „Rozwiązanie potencjalnie mogłoby ewentualnie w pewnym stopniu przyczynić się do poprawy.”
-**Po:** „Rozwiązanie poprawi wyniki.”
+**Po:** „Rozwiązanie mogłoby w pewnym stopniu pomóc w poprawie.”
 
 Słowa: potencjalnie, ewentualnie, w pewnym stopniu, do pewnego stopnia, mogłoby, wydaje się, że, można by uznać, że.
 
@@ -355,11 +349,11 @@ Patrz też #44 i #45.
 AI dosłownie tłumaczy angielskie zwroty.
 
 **Przed:** „Treść jest królem w świecie content marketingu. Musisz być na tej samej stronie z klientem.”
-**Po:** „Dobra treść sprzedaje. Musisz się z klientem rozumieć.”
+**Po:** „Treść jest najważniejsza w content marketingu. Musisz się z klientem rozumieć.”
 
 | Kalka | Po polsku |
 |-------|-----------|
-| treść jest królem | dobra treść sprzedaje |
+| treść jest królem | treść jest najważniejsza |
 | być na tej samej stronie | rozumieć się, zgadzać się |
 | myśleć poza pudełkiem | myśleć nieszablonowo |
 | game changer, zmienia zasady gry | przełom |
@@ -383,12 +377,10 @@ Praktyczny test: skreśl pierwsze zdanie. Jeśli tekst nic nie stracił, zostaw 
 
 ### 29. Amerykańskie realia
 
+Obce realia nie są błędem stylu. Zachowaj wydarzenia, instytucje i miejsca, o których pisze autor. Objaśnij je, jeśli odbiorca tego potrzebuje i masz podstawę w materiale. Lokalizacja przykładów wymaga odpowiedniej intencji użytkownika i nie może zmieniać opisywanych faktów.
+
 **Przed:** „Jak Super Bowl wpływa na strategie marketingowe polskich firm.”
-**Po:** „Jak finał Ligi Mistrzów wpływa na strategie marketingowe polskich firm.”
-
-Black Friday zostaje, bo w Polsce funkcjonuje. Thanksgiving nie. College to studia, high school to liceum, freshman to pierwszy rok.
-
-Podmieniaj tylko wtedy, gdy sens tekstu na to pozwala. Jeśli autor pisze o amerykańskim rynku, Super Bowl zostaje.
+**Po:** bez zmiany. Podmiana Super Bowl na finał Ligi Mistrzów zmieniłaby temat.
 
 ---
 
@@ -399,7 +391,7 @@ To wzorzec o dwóch twarzach i oba kierunki są błędem.
 Pierwszy: tekst jest bezpłciowy, bo AI unika stanowiska.
 
 **Przed:** „Rozwiązanie oferuje funkcjonalności. Użytkownicy mogą korzystać z opcji. System umożliwia realizację zadań.”
-**Po:** „CRM robi trzy rzeczy: wystawia ofertę, pilnuje terminu i przypomina o odpowiedzi.”
+**Po:** „System ma funkcje, które umożliwiają użytkownikom wykonywanie zadań. [jakie funkcje i zadania?]”
 
 Drugi, groźniejszy przy redakcji: autor miał opinię, a redakcja ją zmyła.
 
@@ -422,27 +414,22 @@ Jeśli jest, wyciągnij go i chroń. Nie zamieniaj „skrócił czas review z 30
 
 Jeśli konkretu nie ma, **nie wymyślaj go**. Żadnych nazw firm, dat, procentów ani nazwisk, których autor nie podał. Masz dwie opcje: skrócić zdanie do tego, co jest prawdą, albo zostawić znacznik.
 
-**Po (wariant skrócony):** „To podejście działa.”
-**Po (wariant ze znacznikiem):** „To podejście działa. `[jakie firmy, jakie wyniki?]`”
+**Po (wariant skrócony):** „Wiele firm odniosło sukces dzięki temu podejściu.”
+**Po (wariant ze znacznikiem):** „Wiele firm odniosło sukces dzięki temu podejściu. `[jakie firmy, jakie wyniki?]`”
 
 ---
 
-### 32. Amerykański entuzjazm
+### 32. Wymuszony entuzjazm
 
-**Przed:** „To niesamowite rozwiązanie, które rewolucjonizuje branżę! Ekscytujące możliwości!”
-**Po:** „Niezłe rozwiązanie. Robi to, co obiecuje.”
+Entuzjazm oceniaj względem autora, tematu i odbiorcy. Nie ma jednego obowiązkowego poziomu powściągliwości dla całej polszczyzny.
 
-| AI pisze | Człowiek pisze |
-|----------|---------------|
-| niesamowite! | niezłe |
-| fantastyczne! | dobre |
-| ekscytujące! | ciekawe |
-| rewolucjonizuje! | zmienia, upraszcza |
-| absolutnie fenomenalne | (usuń, napisz co konkretnie) |
+**Przed:** „Nareszcie! Udało mi się uruchomić sklep. Czekałem na ten dzień pół roku.”
+**Po:** bez zmiany. Emocja ma uzasadnienie i należy do autora.
 
-Polska komunikacja jest powściągliwa. Understatement bije hiperbolę.
+**Przed:** „To absolutnie fenomenalna, niesamowita funkcja: zapisuje wersje dokumentu.”
+**Po:** „Ta funkcja zapisuje wersje dokumentu.”
 
-Wyjątek: jeśli autor naprawdę jest entuzjastą i tak pisze, to jest jego głos. Wzorzec dotyczy entuzjazmu dopisanego przez model, nie temperamentu człowieka.
+Druga poprawka pasuje do neutralnego opisu funkcji, jeśli przesada jest pustym ozdobnikiem. W osobistej wypowiedzi entuzjasty może zostać. Nie dopisuj w zamian ocen typu „niezłe” ani obietnic typu „robi to, co obiecuje”.
 
 ---
 
@@ -462,49 +449,37 @@ Wyjątek: jeśli autor naprawdę jest entuzjastą i tak pisze, to jest jego gło
 
 ### 34. Monotonny rytm zdań
 
-Najsilniejszy sygnał dla detektorów AI. Model pisze zdania podobnej długości. Człowiek miesza bardzo krótkie z bardzo długimi.
+Podobna długość zdań może dawać monotonny rytm, ale sama w sobie nie jest błędem ani dowodem autorstwa AI. Oceniaj płynność czytania, nie statystykę.
 
 **Przed:** „System oferuje wiele funkcji. Użytkownicy mogą korzystać z dashboardu. Raporty generowane są automatycznie. Integracja z innymi narzędziami jest prosta.”
-**Po:** „System ma wszystko. Dashboard, automatyczne raporty, integracje, wszystko działa od razu po wdrożeniu, bez zabawy w konfigurację.”
+**Po:** „System oferuje wiele funkcji: użytkownicy mają do dyspozycji dashboard, a raporty powstają automatycznie. Łatwo też połączyć system z innymi narzędziami.”
 
-Kalibracja dla polszczyzny. Polskie zdanie niesie tę samą treść w mniejszej liczbie słów niż angielskie, bo fleksja zastępuje przyimki i rodzajniki. Pasmo, w którym model się okopuje, to zwykle 12-22 słowa, a nie 15-25 jak w tekstach angielskich.
-
-Diagnoza: policz słowa w każdym zdaniu. Odchylenie standardowe poniżej 5 słów oznacza rytm modelu.
-
-Zasady:
-- mieszaj zdania 3-5 słów z 20-35
-- po dwóch, trzech zdaniach średnich wstaw jedno bardzo krótkie albo bardzo długie
-- zdanie jednowyrazowe jest w porządku, jeśli autor tak pisze
-
-Nie rozbijaj zdań tylko po to, żeby zbić statystykę. Rozbijaj te, które są naprawdę ciężkie.
+Łącz zdania, gdy dotyczą jednej myśli, a dziel je, gdy składnia utrudnia zrozumienie. Zachowaj informacje i naturalne przejścia. Nie stosuj limitów słów ani obowiązkowych sekwencji krótkich i długich zdań.
 
 ---
 
 ### 35. Monotonna długość akapitów
 
-AI pisze akapity po 3-5 zdań, wszystkie podobne. Człowiek stawia akapit jednozdaniowy obok ośmiozdaniowego.
+Długość akapitów zależy od sposobu rozwijania myśli i gatunku tekstu.
 
-Zasada: jeśli wszystkie akapity mają podobną długość, przepisz. Akapit z jednego zdania jest w porządku.
+Podobna długość akapitów nie wymaga poprawki. Zmieniaj podział tylko wtedy, gdy ułatwia śledzenie myśli. Akapit z jednego zdania jest w porządku, jeśli wynika z treści.
 
 ---
 
 ### 36. Szablonowa struktura akapitu
 
-AI trzyma jeden schemat: zdanie wprowadzające, argument, podsumowanie. Za każdym razem.
+Powtarzany układ wstęp–argument–podsumowanie może nużyć. Zmieniaj go tylko wtedy, gdy poprawi tok wyjaśnienia.
 
 **Przed:** „Automatyzacja jest ważna. Firmy korzystające z automatyzacji osiągają lepsze wyniki. Dlatego warto inwestować w automatyzację.”
-**Po:** „Dlaczego firmy wciąż robią to ręcznie? Automatyzacja jest od lat i kosztuje grosze.”
+**Po:** „Automatyzacja jest ważna, bo firmy, które z niej korzystają, osiągają lepsze wyniki. Dlatego warto w nią inwestować.”
 
-Zasady:
-- zacznij akapit od pytania albo od środka myśli
-- wytnij zdanie podsumowujące, jeśli powtarza wstęp
-- nie zamieniaj jednego schematu na drugi schemat, stosowany równie mechanicznie
+To nadal ogólna teza autora; możesz oznaczyć brak danych ją wspierających. Nie dopisuj, od kiedy automatyzacja istnieje ani ile kosztuje. Nie zaczynaj akapitów od pytań lub środka myśli tylko dla urozmaicenia.
 
 ---
 
 ### 37. Wygładzona nieregularność
 
-Prawdziwy tekst ma nierówności: fragmenty zdań, potocyzmy, urwane myśli. AI ich nie ma, a zła redakcja je usuwa.
+Tekst autora może mieć nierówności: fragmenty zdań, potocyzmy i urwane myśli. Nie usuwaj ich, jeśli są czytelne i pasują do wypowiedzi. Ich obecność lub brak nie rozstrzyga o autorstwie.
 
 **Zostaw:** „Czemu? Bo działa. A resztę dogadamy po wdrożeniu.”
 **Nie zamieniaj tego na:** „Należy rozważyć, czy proponowane rozwiązanie spełnia wszystkie wymagania.”
@@ -519,12 +494,12 @@ Wersja praktyczna: chroń nierówności autora, nie produkuj własnych.
 
 ### 38. Kontrast binarny
 
-**Przed:** „To nie jest problem modelu. To problem ewaluacji.” / „Pytanie nie brzmi, czy wdrożyć, tylko kiedy.”
-**Po:** „Ewaluacja jest tu ważniejsza niż model.” / „Wdrożenie jest przesądzone, zostaje termin.”
+Kontrast pomaga sprostować nieporozumienie. Zachowaj go, gdy rozróżnienie ma znaczenie.
 
-Schemat: zaprzeczenie, potem właściwa teza. Powiedz tezę od razu.
+**Przed:** „To nie jest problem modelu. To problem ewaluacji.”
+**Po:** „To problem ewaluacji, a nie modelu.”
 
-Warianty: „to nie X, to Y”, „pytanie nie brzmi X, tylko Y”, „nie chodzi o X, chodzi o Y”.
+Można też zostawić oryginał. „Ewaluacja jest ważniejsza niż model” zmieniałoby tezę. Ograniczaj serię kontrastów użytych wyłącznie dla efektu.
 
 ---
 
@@ -534,6 +509,8 @@ Warianty: „to nie X, to Y”, „pytanie nie brzmi X, tylko Y”, „nie chodz
 **Po:** „Dane trzeba czyścić przed treningiem.”
 
 Frazy: „rzecz w tym, że”, „powiem wprost”, „bądźmy szczerzy”, „prawda jest taka, że”, „powiedzmy sobie jasno”, „muszę to powiedzieć”, „otóż”.
+
+Zostaw „rzecz w tym” lub podobne wtrącenie, jeśli porządkuje rozmowę, niesie nacisk lub pasuje do autora.
 
 Różnica wobec #28: tam chodzi o wstęp do całego tekstu, tu o zagajenie przed pojedynczym zdaniem.
 
@@ -552,10 +529,11 @@ Te zapowiedzi ustawiają autora jako jedynego, który wie. Teza obroni się sama
 
 ### 41. Dwukropek z rewelacją
 
-**Przed:** „Szczegół, który to zmienia: ocenia to osobny agent.” / „Najlepsze: uczy się sam.”
-**Po:** „Ocenia to osobny agent i to właśnie tu tkwi różnica.” / „Uczy się sam.”
+Dwukropek może naturalnie wprowadzać wyjaśnienie, puentę lub ważną informację. Sam w sobie nie wymaga poprawki.
 
-Dwukropek służy do wyliczeń, etykiet i cytatów, nie do budowania napięcia. Po dwukropku małą literą, chyba że wymaga inaczej gramatyka, nazwa własna, tytuł albo kod.
+**Zostaw:** „Najbardziej pomogła jedna zmiana: każdy raport sprawdza teraz druga osoba.”
+
+Przebuduj zdanie, gdy zapowiedź obiecuje więcej, niż mówi dalsza część, lub gdy cały tekst powtarza taki schemat. Zachowaj ocenę autora, jeśli jest zamierzona.
 
 ---
 
@@ -573,38 +551,38 @@ Nie myl z #37. Fragment, który napisał autor, zostaje. Kaskada fragmentów wst
 **Przed:** „A gdybym ci powiedział, że da się to zrobić w tydzień? Pomyśl o tym.” / „Zwrot akcji: nikt tego nie używał.”
 **Po:** „Da się to zrobić w tydzień.” / „Nikt tego nie używał.”
 
+Pytanie z odpowiedzią może naturalnie prowadzić wyjaśnienie: „Dlaczego zapis trwa dłużej? System sprawdza teraz każdy rekord”. Takiego fragmentu nie trzeba usuwać. Poniższe frazy oceniaj w kontekście, zwłaszcza gdy powtarzają się mechanicznie.
+
 Frazy: „a gdybym ci powiedział”, „pomyśl o tym”, „zwrot akcji”, „zgadnij, co się stało”, oraz pytania, na które autor sam odpowiada w następnym zdaniu.
 
 ---
 
 ### 44. Pseudogłęboka puenta
 
-Ostatnie zdanie, które zamienia wniosek w metaforę albo aforyzm.
+Oceń, czy metafora lub puenta wynika z tekstu i pasuje do autora. Usuń pusty efekt, który nie wnosi sensu. Zachowaj trafną puentę; metafora sama w sobie nie jest błędem.
 
-**Przed:** „Bo w gruncie rzeczy nie budujemy narzędzi. Budujemy sposób, w jaki jutro będziemy myśleć.”
-**Po:** (skasuj i zakończ na ostatnim konkretnym zdaniu, które w tekście już jest)
-
-Nie przepisuj tego na lepszą metaforę. Nie ratuj rytmu. Skasuj. Jeśli tekst po tym urywa się za ostro, dopisz prosty wniosek albo następny krok, bez ozdób.
+Jeśli usunięcie zakończenia urywa myśl, oprzyj je na wniosku już obecnym w tekście. Nie dopisuj nowej rekomendacji, obietnicy ani efektownej metafory.
 
 ---
 
 ### 45. Zakończenie-streszczenie
 
-**Przed:** „Podsumowując, omówiliśmy trzy metody. Ostatecznie wybór zależy od potrzeb.”
-**Po:** (skasuj, czytelnik właśnie to przeczytał)
+Podsumowanie może porządkować rozumowanie lub pomóc zapamiętać wniosek, także w poście. Usuń je tylko wtedy, gdy zbędnie powtarza to, co czytelnik już zrozumiał.
 
-Frazy: „podsumowując”, „reasumując”, „ostatecznie”, „w konkluzji”, „jak widać”, „wszystko sprowadza się do”.
+**Przed:** „Podsumowując, wybór zależy od tego, czy ważniejsza jest cena, czy czas wdrożenia.”
+**Po:** „Wybór zależy od tego, czy ważniejsza jest cena, czy czas wdrożenia.”
 
-Wyjątek: streszczenie ma sens w dokumentacji, raporcie i dłuższym tekście technicznym, gdzie czytelnik skacze po nagłówkach. W felietonie i poście nie ma.
+Można zachować również „podsumowując”, jeśli sygnalizuje potrzebne przejście. Gatunek tekstu sam nie rozstrzyga o usunięciu podsumowania.
 
 ---
 
 ### 46. Lista przecząca
 
-**Przed:** „To nie narzędzie. Nie framework. Nie kolejna biblioteka. To sposób pracy.”
-**Po:** „To sposób pracy.”
+Lista zaprzeczeń bywa pustą zapowiedzią, ale może też wyznaczać granice pojęcia. Usuń tylko zaprzeczenia, które niczego nie wyjaśniają.
 
-Trzy zaprzeczenia budujące napięcie przed jednym twierdzeniem. Zostaw twierdzenie.
+**Zostaw:** „To nie jest kopia zapasowa. Historia wersji pozwala wrócić do wcześniejszej treści, ale nie odtworzyć usuniętego konta.”
+
+Samo „to historia wersji” zgubiłoby istotne ograniczenie.
 
 ---
 
@@ -612,10 +590,10 @@ Trzy zaprzeczenia budujące napięcie przed jednym twierdzeniem. Zostaw twierdze
 
 ### 47. Rzeczownikowość i styl urzędowy
 
-Największy sygnał AI po polsku zaraz po rytmie. Model zamienia czasowniki w rzeczowniki odczasownikowe i tekst zaczyna brzmieć jak pismo z urzędu.
+Nagromadzenie rzeczowników odczasownikowych może nadawać tekstowi urzędowy ton. Oceniaj czytelność i rejestr, nie domniemane autorstwo.
 
 **Przed:** „W celu dokonania weryfikacji poprawności danych należy przeprowadzić proces ich walidacji.”
-**Po:** „Żeby sprawdzić dane, zwaliduj je.”
+**Po:** „Należy sprawdzić poprawność danych.”
 
 | AI pisze | Człowiek pisze |
 |----------|----------------|
@@ -633,7 +611,7 @@ Największy sygnał AI po polsku zaraz po rytmie. Model zamienia czasowniki w rz
 | w oparciu o | na podstawie |
 | celem uzyskania | żeby dostać |
 
-Test: policz rzeczowniki na -anie, -enie, -cja w akapicie. Trzy i więcej to sygnał.
+Sprawdź, czy czasownik uprości zdanie bez zmiany rejestru i znaczenia. Sama liczba rzeczowników nie jest kryterium poprawki.
 
 ---
 
@@ -661,7 +639,7 @@ Objawy:
 Polski opuszcza zaimek osobowy, bo końcówka czasownika już go niesie. AI go zostawia, bo angielski musi.
 
 **Przed:** „My oferujemy wsparcie. Ty możesz skorzystać z naszej pomocy, kiedy Ty tego potrzebujesz.”
-**Po:** „Oferujemy wsparcie. Skorzystasz z niego, kiedy będzie potrzebne.”
+**Po:** „Oferujemy wsparcie. Możesz z niego skorzystać, kiedy go potrzebujesz.”
 
 To samo z dzierżawczymi. Polski nie mówi „podniosłem moją rękę”, tylko „podniosłem rękę”.
 
@@ -675,7 +653,7 @@ Zostaw zaimek, gdy jest tam dla kontrastu („ja tak nie uważam, ale ty możesz
 ### 50. Łańcuchy „który” i wata gramatyczna
 
 **Przed:** „Rozwiązanie, które pozwala na to, aby użytkownicy mogli dokonywać zmian, które są potrzebne.”
-**Po:** „Rozwiązanie pozwala użytkownikom zmieniać, co trzeba.”
+**Po:** „Rozwiązanie pozwala użytkownikom wprowadzać potrzebne zmiany.”
 
 | AI pisze | Człowiek pisze |
 |----------|----------------|
