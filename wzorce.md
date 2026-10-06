@@ -1,4 +1,4 @@
-# 52 wzorce pisania AI po polsku
+# 53 wzorce pisania AI po polsku
 
 Pełny katalog do [SKILL.md](SKILL.md). Każdy wzorzec ma przykład przed i po.
 
@@ -586,7 +586,7 @@ Samo „to historia wersji” zgubiłoby istotne ograniczenie.
 
 ---
 
-## Polszczyzna w detalach (47-52)
+## Polszczyzna w detalach (47-53)
 
 ### 47. Rzeczownikowość i styl urzędowy
 
