@@ -59,6 +59,7 @@ Poniższe kontrole wzorców stosuj w kontekście. Obecność słowa lub konstruk
 7. Czy miesiące, dni tygodnia, nazwy języków i przymiotniki od nazw własnych są małą literą (#52)?
 8. Czy interpunkcja jest polska: bez oxford comma, z przecinkiem przed „który” i „że”, bez zbędnego przecinka po „ponadto” na początku zdania (#33)?
 9. Czy tekst brzmi jak napisany po polsku, a nie przetłumaczony z angielskiego (#27, #48)?
+10. Czy każde zdanie podrzędne (po „aż”, „gdy”, „bo”, „jeśli”, „żeby”) ma czasownik w formie osobowej, także w nagłówkach i leadach, i czy redakcja nie ścięła żadnego zdania do równoważnika (#53)?
 
 ## Rytm
 

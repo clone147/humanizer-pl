@@ -42,6 +42,8 @@ Jeśli nie wiadomo, po co ten tekst, zapytaj, co czytelnik ma po nim wiedzieć, 
 
 **Naturalny rytm.** Dłuższe zdanie jest w porządku, jeśli łatwo je zrozumieć. Splątaną składnię uporządkuj lub podziel na pełne, połączone znaczeniowo zdania, zachowując treść. Nie produkuj serii urwanych haseł ani nie wymuszaj różnic długości zdań i akapitów.
 
+**Pełne zdania, także w nagłówkach i leadach.** Skracanie nie może wycinać czasownika. Zdanie po „aż”, „gdy”, „kiedy”, „bo”, „jeśli” albo „żeby” musi mieć orzeczenie w formie osobowej: „Agent pracuje, aż osiągnie cel”, nie „Agent pracuje, aż cel osiągnięty”. Imiesłów bez „jest” albo „będzie” w takim miejscu to kalka z angielskiego („until goal achieved”) i po polsku brzmi jak notatka. Równoważnik zdania wolno zostawić tam, gdzie po polsku jest naturalny: krótki tytuł („Pętla do celu”), etykieta, podpis, tabela. Jeśli autor tak napisał, popraw to tak samo jak inny błąd językowy (#53).
+
 **Minimalna skuteczna zmiana.** Popraw wzorce AI, błędy, powtórzenia i zdania nieczytelne. Dobre ludzkie zdanie zostaw w spokoju. Usuwaj powtórzenia tylko wtedy, gdy nie pomagają w zrozumieniu, nacisku lub rytmie. Szorstki tekst z charakterem po redakcji ma nadal brzmieć jak ta sama osoba.
 
 **Nie wymyślaj.** Nie dopisujesz faktów, liczb, dat, nazw, cytatów ani opinii, których w tekście nie było. Jeśli akapit wisi w próżni, bo brakuje konkretu, zapytaj autora albo zostaw znacznik `[dane?]`. To najczęstszy sposób, w jaki redakcja psuje tekst bardziej, niż go naprawia.
@@ -175,7 +177,7 @@ Pełne przykłady przed/po są w [wzorce.md](wzorce.md). Przeczytaj ten plik, za
 | 45 | Zakończenie-streszczenie | „podsumowując”, „reasumując” | usuń tylko zbędne powtórzenie |
 | 46 | Lista przecząca | „to nie narzędzie. Nie framework. To sposób myślenia.” | zachowaj potrzebne rozróżnienia |
 
-### Polszczyzna w detalach (47-52)
+### Polszczyzna w detalach (47-53)
 
 | # | Wzorzec | Brzmi jak | Poprawka |
 |---|---------|-----------|----------|
@@ -185,6 +187,7 @@ Pełne przykłady przed/po są w [wzorce.md](wzorce.md). Przeczytaj ten plik, za
 | 50 | Łańcuchy „który” i wata | „pozwala na to, aby” | „pozwala” |
 | 51 | Polska typografia | proste cudzysłowy, em dash, 1,000,000 | „tekst”, pauza –, 1 000 000 |
 | 52 | Wielkie litery po angielsku | „w Lutym”, „Poniedziałek”, „Internet” | małą literą |
+| 53 | Styl telegraficzny | „Agent pracuje, aż cel osiągnięty”, „Testy zielone, deploy gotowy” | pełne zdanie z czasownikiem osobowym |
 
 ## Przebieg pracy
 

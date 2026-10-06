@@ -6,7 +6,7 @@ Ta druga część jest ważniejsza. Większość humanizerów wygładza tekst do
 
 ## Co jest w środku
 
-52 wzorce pisania AI po polsku, dwa tryby pracy i eval, który skill przejeżdża sam na sobie przed oddaniem tekstu.
+53 wzorce pisania AI po polsku, dwa tryby pracy i eval, który skill przejeżdża sam na sobie przed oddaniem tekstu.
 
 Katalog obejmuje warstwy, których angielskie humanizery nie łapią, bo po polsku wyglądają inaczej albo w ogóle nie mają odpowiednika:
 
@@ -80,7 +80,7 @@ Wykryte wzorce: #28 otwieracz, #8 słownictwo AI, #2 puste odwołanie do źróde
 
 | Plik | Zawartość |
 |------|-----------|
-| `SKILL.md` | tryby, zasady redakcji, listy słów, indeks 52 wzorców, przebieg pracy |
+| `SKILL.md` | tryby, zasady redakcji, listy słów, indeks 53 wzorców, przebieg pracy |
 | `wzorce.md` | pełny katalog z przykładami przed i po |
 | `eval.md` | pass/fail, które skill przejeżdża na własnej redakcji |
 | `agents/openai.yaml` | konfiguracja dla Codex |
@@ -89,7 +89,7 @@ Wykryte wzorce: #28 otwieracz, #8 słownictwo AI, #2 puste odwołanie do źróde
 
 Zaczęło się jako polski fork [blader/humanizer](https://github.com/blader/humanizer).
 
-Zasady redakcji, tryb wykrywania i pomysł na eval pochodzą z [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop). Wzorce 38-46 to polskie odpowiedniki jego katalogu retorycznego. Wzorce 47-52 dopisałem od zera, bo dotyczą fleksji, szyku i typografii, a tam angielski oryginał nie ma czego przenosić.
+Zasady redakcji, tryb wykrywania i pomysł na eval pochodzą z [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop). Wzorce 38-46 to polskie odpowiedniki jego katalogu retorycznego. Wzorce 47-53 dopisałem od zera, bo dotyczą fleksji, składni, szyku i typografii, a tam angielski oryginał nie ma czego przenosić.
 
 ## Licencja
 

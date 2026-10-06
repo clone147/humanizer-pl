@@ -707,3 +707,16 @@ Po polsku małą literą:
 Wielką literą: narodowości (Polak, Niemiec), mieszkańcy miast (warszawianin małą, ale Amerykanin wielką), nazwy własne, święta (Boże Narodzenie).
 
 „Ty”, „Twój”, „Państwo” wielką literą są poprawne w bezpośrednim zwrocie do odbiorcy. Sprawdź tylko, czy autor robi to konsekwentnie w całym tekście.
+
+---
+
+### 53. Styl telegraficzny
+
+Zdanie traci czasownik i zostaje z niego notatka. Najczęściej po spójniku: „aż”, „gdy”, „bo”, „jeśli”, „żeby”. Po polsku zdanie podrzędne potrzebuje orzeczenia w formie osobowej, a sam imiesłów („osiągnięty”, „gotowy”, „zrobione”) bez „jest” albo „będzie” to kalka angielskiego skrótu („until goal achieved”, „tests green, deploy done”). AI robi to szczególnie w nagłówkach, leadach i podpisach, kiedy ma się zmieścić w krótkiej formie.
+
+**Przed:** „Agent pracuje, aż cel osiągnięty.” / „Pętla kończy się, gdy lista pusta.” / „Testy zielone, deploy gotowy, klient zadowolony.” / „Wdrożenie proste, efekt natychmiastowy.”
+**Po:** „Agent pracuje, aż osiągnie cel.” / „Pętla kończy się, gdy lista jest pusta.” / „Testy przechodzą, wdrożyliśmy zmianę, a klient jest zadowolony.” / „Wdrożenie jest proste, a efekt widać od razu.”
+
+Równoważnik zdania zostaje tam, gdzie po polsku jest naturalny: krótki tytuł („Pętla do celu”), etykieta w tabeli, podpis pod zdjęciem, punkt na liście kontrolnej. Problemem jest zdanie, które zaczyna się jak pełne, a w połowie gubi czasownik.
+
+Redakcja nie może tego wzorca wprowadzać. Kiedy skracasz zdanie, wycinaj watę, nie orzeczenie. Krótsze zdanie bez czasownika jest gorsze od dłuższego z czasownikiem.
